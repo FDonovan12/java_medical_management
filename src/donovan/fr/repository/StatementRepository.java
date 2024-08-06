@@ -35,7 +35,16 @@ public class StatementRepository extends Database {
 	}
 
 	private static void deleteStatement(Statement statement) {
-		statements = statements.stream().filter(par -> par.getId() != statement.getId()).toList();		
+		statements = statements.stream().filter(par -> par.getId() != statement.getId()).toList();
+		
+//		List<Statement> newStatement = new ArrayList<Statement>();
+//		for (Statement statement2 : statements) {
+//			if (statement2.getId() != statement.getId()) {
+//				newStatement.add(statement2);
+//			}
+//		}
+//		statements = newStatement;
+		
 		statement.getPatient().deleteStatement(statement);
 	}
 
